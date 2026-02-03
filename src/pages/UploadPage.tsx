@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Header } from '@/components/layout/Header';
-import { StepIndicator } from '@/components/layout/StepIndicator';
-import { UploadZone } from '@/components/upload/UploadZone';
-import { ProcessingState } from '@/components/upload/ProcessingState';
-import { ReviewList } from '@/components/review/ReviewList';
-import { UploadStep, ParsedItem, Product, CartItem } from '@/types/grocery';
-import { extractTextFromImage, preprocessImage } from '@/lib/ocr';
-import { parseGroceryList } from '@/lib/nlp';
-import { useCart } from '@/context/CartContext';
+import { AuthenticatedLayout } from '../components/layout/AuthenticatedLayout';
+import { StepIndicator } from '../components/layout/StepIndicator';
+import { UploadZone } from '../components/upload/UploadZone';
+import { ProcessingState } from '../components/upload/ProcessingState';
+import { ReviewList } from '../components/review/ReviewList';
+import { UploadStep, ParsedItem, Product, CartItem } from '../types/grocery';
+import { extractTextFromImage, preprocessImage } from '../lib/ocr';
+import { parseGroceryList } from '../lib/nlp';
+import { useCart } from '../context/CartContext';
 import { toast } from 'sonner';
 
 export default function UploadPage() {
@@ -138,35 +138,32 @@ export default function UploadPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main className="container mx-auto px-4 py-8">
-        <StepIndicator currentStep={step} />
+    <AuthenticatedLayout>
+      <StepIndicator currentStep={step} />
 
-        <div className="mt-8">
-          {step === 'upload' && (
-            <UploadZone
-              onImageUpload={handleImageUpload}
-              onTextSubmit={handleTextSubmit}
-              isProcessing={false}
-            />
-          )}
+      <div className="mt-8">
+        {step === 'upload' && (
+          <UploadZone
+            onImageUpload={handleImageUpload}
+            onTextSubmit={handleTextSubmit}
+            isProcessing={false}
+          />
+        )}
 
-          {step === 'processing' && (
-            <ProcessingState progress={progress} stage={processingStage} />
-          )}
+        {step === 'processing' && (
+          <ProcessingState progress={progress} stage={processingStage} />
+        )}
 
-          {step === 'review' && (
-            <ReviewList
-              items={parsedItems}
-              onUpdateItem={handleUpdateItem}
-              onRemoveItem={handleRemoveItem}
-              onAddToCart={handleAddToCart}
-              onAddNewItem={handleAddNewItem}
-            />
-          )}
-        </div>
-      </main>
-    </div>
+        {step === 'review' && (
+          <ReviewList
+            items={parsedItems}
+            onUpdateItem={handleUpdateItem}
+            onRemoveItem={handleRemoveItem}
+            onAddToCart={handleAddToCart}
+            onAddNewItem={handleAddNewItem}
+          />
+        )}
+      </div>
+    </AuthenticatedLayout>
   );
 }

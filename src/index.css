@@ -5,6 +5,49 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom animations for dynamic bubble movement */
+@keyframes float-horizontal {
+  0%, 100% { transform: translateX(0px) translateY(0px); }
+  25% { transform: translateX(30px) translateY(-15px); }
+  50% { transform: translateX(-20px) translateY(10px); }
+  75% { transform: translateX(40px) translateY(-10px); }
+}
+
+@keyframes float-vertical {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33% { transform: translateY(-40px) translateX(20px); }
+  66% { transform: translateY(30px) translateX(-15px); }
+}
+
+@keyframes drift-large {
+  0% { transform: translate(0px, 0px) scale(1); }
+  25% { transform: translate(80px, -60px) scale(1.1); }
+  50% { transform: translate(-40px, 40px) scale(0.9); }
+  75% { transform: translate(-70px, -20px) scale(1.05); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes spiral-movement {
+  0% { transform: translate(0px, 0px) rotate(0deg); }
+  25% { transform: translate(50px, -80px) rotate(90deg); }
+  50% { transform: translate(-60px, -40px) rotate(180deg); }
+  75% { transform: translate(-30px, 60px) rotate(270deg); }
+  100% { transform: translate(0px, 0px) rotate(360deg); }
+}
+
+@keyframes particle-dance {
+  0%, 100% { transform: translateX(0px) translateY(0px) scale(1); }
+  20% { transform: translateX(15px) translateY(-25px) scale(1.2); }
+  40% { transform: translateX(-10px) translateY(20px) scale(0.8); }
+  60% { transform: translateX(25px) translateY(10px) scale(1.1); }
+  80% { transform: translateX(-20px) translateY(-15px) scale(0.9); }
+}
+
+@keyframes gentle-sway {
+  0%, 100% { transform: translateX(0px) translateY(0px); }
+  50% { transform: translateX(60px) translateY(-30px); }
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */

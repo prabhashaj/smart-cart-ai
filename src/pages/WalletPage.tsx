@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Wallet, ArrowUpRight, ArrowDownLeft, Plus } from 'lucide-react';
-import { Header } from '@/components/layout/Header';
+import { AuthenticatedLayout } from '../components/layout/AuthenticatedLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useCart } from '@/context/CartContext';
+import { useCart } from '../context/CartContext';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
@@ -25,11 +25,9 @@ export default function WalletPage() {
   const quickAmounts = [25, 50, 100, 200];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main className="container mx-auto px-4 py-8">
-        <div className="max-w-2xl mx-auto space-y-6">
-          {/* Balance Card */}
+    <AuthenticatedLayout>
+      <div className="max-w-2xl mx-auto space-y-6">
+        {/* Balance Card */}
           <Card className="overflow-hidden">
             <CardContent className="p-0">
               <div className="bg-gradient-to-br from-primary to-primary/80 p-8 text-primary-foreground">
@@ -131,8 +129,7 @@ export default function WalletPage() {
               </div>
             </CardContent>
           </Card>
-        </div>
-      </main>
-    </div>
+      </div>
+    </AuthenticatedLayout>
   );
 }

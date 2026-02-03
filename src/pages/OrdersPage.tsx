@@ -1,8 +1,8 @@
 import { Package, Calendar, DollarSign, Clock, CheckCircle } from 'lucide-react';
-import { Header } from '@/components/layout/Header';
+import { AuthenticatedLayout } from '../components/layout/AuthenticatedLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { useCart } from '@/context/CartContext';
+import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { format } from 'date-fns';
@@ -17,10 +17,8 @@ export default function OrdersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-foreground mb-8">Order History</h1>
+    <AuthenticatedLayout>
+      <h1 className="text-3xl font-bold text-foreground mb-8">Order History</h1>
 
         {orders.length === 0 ? (
           <Card className="max-w-md mx-auto">
@@ -107,7 +105,6 @@ export default function OrdersPage() {
             })}
           </div>
         )}
-      </main>
-    </div>
+    </AuthenticatedLayout>
   );
 }
