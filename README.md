@@ -219,18 +219,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Prabhash**
 - GitHub: [@prabhashaj](https://github.com/prabhashaj)
-
-## 🙏 Acknowledgments
-
-- Built with [shadcn/ui](https://ui.shadcn.com/)
-- Icons by [Lucide](https://lucide.dev/)
-- Powered by [Vite](https://vitejs.dev/)
-- Deployed on [Vercel](https://vercel.com/)
-
-## 📞 Support
-
-For support, email or open an issue in the GitHub repository.
-
----
-
-**Made with ❤️ and AI** | [Live Demo](https://smart-cart-ai-xi.vercel.app) | [GitHub](https://github.com/prabhashaj/smart-cart-ai)
