@@ -192,15 +192,6 @@ npm run test
 # Watch mode
 npm run test:watch
 ```
-
-## 📊 Key Metrics
-
-- ⚡ **99%** - Recognition accuracy
-- 🚀 **3s** - Average processing time
-- 👥 **50K+** - Happy shoppers
-- 🎯 **10+** - Product categories
-- 📦 **60+** - Products in catalog
-
 ## 🤝 Contributing
 
 We welcome contributions! Here's how you can help:
